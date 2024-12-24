@@ -1,31 +1,42 @@
 {
-  "title": "Scenario ONE Kali Linux",
-  "description": "This is a custom Kali Linux scenario using Ubuntu as the base image.",
+  "title": "Scenario ONE",
+  "description": "Custom Kali Linux scenario with tasks",
   "difficulty": "Intermediate",
-  "time": "30 minutes",
+  "time": "15 minutes",
   "backend": {
     "imageid": "ubuntu"
   },
   "steps": [
     {
-      "title": "Step 1 - Update and Install Kali Tools",
-      "text": "Run the following commands to set up Kali tools on Ubuntu.",
-      "code": "apt update && apt install -y curl wget gnupg2"
+      "title": "Step 1 - Environment Setup",
+      "text": "Ensure the environment is ready. Run the following command to update the package list:",
+      "code": "apt update",
+      "verify": {
+        "outputContains": [
+          "Reading package lists... Done"
+        ]
+      }
     },
     {
-      "title": "Step 2 - Add Kali Repository",
-      "text": "Add the Kali Linux repository to the sources list and import the GPG key.",
-      "code": "echo 'deb http://http.kali.org/kali kali-rolling main non-free contrib' | tee /etc/apt/sources.list.d/kali.list && wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add -"
+      "title": "Step 2 - Install Kali Tools",
+      "text": "Install the top Kali Linux tools:",
+      "code": "apt install -y kali-tools-top10",
+      "verify": {
+        "command": "which nmap",
+        "outputContains": [
+          "/usr/bin/nmap"
+        ]
+      }
     },
     {
-      "title": "Step 3 - Install Kali Tools",
-      "text": "Update the package list and install Kali tools.",
-      "code": "apt update && apt install -y kali-tools-top10"
-    },
-    {
-      "title": "Step 4 - Verify Kali Tools",
-      "text": "Run `nmap` or `metasploit` to verify installation.",
-      "code": "nmap --version"
+      "title": "Step 3 - Run Nmap",
+      "text": "Run a basic Nmap scan:",
+      "code": "nmap -sT localhost",
+      "verify": {
+        "outputContains": [
+          "Nmap scan report for localhost"
+        ]
+      }
     }
   ]
 }
