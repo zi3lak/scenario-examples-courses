@@ -1,5 +1,5 @@
 {
-  "title": "Scenario ONE",
+  "title": "Scenario ONE Kali Linux",
   "description": "This is a custom Kali Linux scenario using Ubuntu as the base image.",
   "difficulty": "Intermediate",
   "time": "20 minutes",
