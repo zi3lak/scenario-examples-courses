@@ -1,1 +1,32 @@
+{
+  "title": "Scenario ONE",
+  "description": "This is a custom Kali Linux scenario using Ubuntu as the base image.",
+  "difficulty": "Intermediate",
+  "time": "20 minutes",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "steps": [
+    {
+      "title": "Step 1 - Update and Install Kali Tools",
+      "text": "Run the following commands to set up Kali tools on Ubuntu.",
+      "code": "apt update && apt install -y curl wget gnupg2"
+    },
+    {
+      "title": "Step 2 - Add Kali Repository",
+      "text": "Add the Kali Linux repository to the sources list and import the GPG key.",
+      "code": "echo 'deb http://http.kali.org/kali kali-rolling main non-free contrib' | tee /etc/apt/sources.list.d/kali.list && wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add -"
+    },
+    {
+      "title": "Step 3 - Install Kali Tools",
+      "text": "Update the package list and install Kali tools.",
+      "code": "apt update && apt install -y kali-tools-top10"
+    },
+    {
+      "title": "Step 4 - Verify Kali Tools",
+      "text": "Run `nmap` or `metasploit` to verify installation.",
+      "code": "nmap --version"
+    }
+  ]
+}
 
