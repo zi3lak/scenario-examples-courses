@@ -1,0 +1,25 @@
+{
+  "title": "Scenario ONE",
+  "description": "This is the description of scenario ONE in course ONE",
+  "difficulty": "Beginner",
+  "time": "15 minutes",
+  "backend": {
+    "imageid": "kalilinux/kali-rolling"
+  },
+  "steps": [
+    {
+      "title": "Step 1 - Introduction",
+      "text": "Welcome to Scenario ONE. This scenario will guide you through setting up a basic environment using Kali Linux."
+    },
+    {
+      "title": "Step 2 - Verify Environment",
+      "text": "Run `lsb_release -a` to verify the Kali Linux environment.",
+      "code": "lsb_release -a"
+    },
+    {
+      "title": "Step 3 - Install Tools",
+      "text": "Run the following command to install additional tools: `apt update && apt install -y vim curl net-tools`.",
+      "code": "apt update && apt install -y vim curl net-tools"
+    }
+  ]
+}
